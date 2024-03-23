@@ -1,0 +1,291 @@
+/home/yuewen/DevEnv/Anaconda/anaconda3/envs/llm/bin/python /home/yuewen/Code/TinyLlama/pretrain/run_clm_sim.py --do_train --config_name /home/yuewen/Code/TinyLlama/save/tiny-llama-origin/config.json --tokenizer_name /home/yuewen/Code/TinyLlama/save/tiny-llama-origin/ --per_device_train_batch_size 3 --train_file /home/yuewen/Code/TinyLlama/data/medical/pretrain/train_encyclopedia.json --output_dir /home/yuewen/Code/TinyLlama/save/checkpoints/ 
+ModelArguments(model_name_or_path=None, model_type=None, config_overrides=None, config_name='/home/yuewen/Code/TinyLlama/save/tiny-llama-origin/config.json', tokenizer_name='/home/yuewen/Code/TinyLlama/save/tiny-llama-origin/', cache_dir=None, use_fast_tokenizer=True, model_revision='main', token=None, use_auth_token=None, trust_remote_code=False, torch_dtype=None, low_cpu_mem_usage=False)
+DataArguments(dataset_name=None, dataset_config_name=None, train_file='/home/yuewen/Code/TinyLlama/data/medical/pretrain/train_encyclopedia.json', validation_file=None, max_train_samples=None, max_eval_samples=None, streaming=False, block_size=None, overwrite_cache=False, validation_split_percentage=5, preprocessing_num_workers=None, keep_linebreaks=True)
+TrainingArguments(
+_n_gpu=1,
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+bf16=False,
+bf16_full_eval=False,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_pin_memory=True,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=None,
+disable_tqdm=False,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=True,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_steps=None,
+evaluation_strategy=IntervalStrategy.NO,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=HubStrategy.EVERY_SAVE,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_inputs_for_metrics=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=5e-05,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=0,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=/home/yuewen/Code/TinyLlama/save/checkpoints/runs/Dec10_21-17-32_HOME,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=500,
+logging_strategy=IntervalStrategy.STEPS,
+lr_scheduler_type=SchedulerType.LINEAR,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=False,
+num_train_epochs=3.0,
+optim=OptimizerNames.ADAMW_TORCH,
+optim_args=None,
+output_dir=/home/yuewen/Code/TinyLlama/save/checkpoints/,
+overwrite_output_dir=False,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=3,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=True,
+report_to=[],
+resume_from_checkpoint=None,
+run_name=/home/yuewen/Code/TinyLlama/save/checkpoints/,
+save_on_each_node=False,
+save_safetensors=True,
+save_steps=500,
+save_strategy=IntervalStrategy.STEPS,
+save_total_limit=None,
+seed=42,
+skip_memory_metrics=True,
+split_batches=False,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_mps_device=False,
+warmup_ratio=0.0,
+warmup_steps=0,
+weight_decay=0.0,
+)
+12/10/2023 21:17:32 - WARNING - __main__ - Process rank: 0, device: cuda:0, n_gpu: 1, distributed training: False, 16-bits training: False
+进入此分支 --->>>>
+12/10/2023 21:17:33 - INFO - datasets.builder - Using custom data configuration default-eb7afd0ef14aa12c
+12/10/2023 21:17:33 - INFO - datasets.info - Loading Dataset Infos from /home/yuewen/DevEnv/Anaconda/anaconda3/envs/llm/lib/python3.11/site-packages/datasets/packaged_modules/json
+12/10/2023 21:17:33 - INFO - datasets.builder - Overwrite dataset info from restored data version if exists.
+12/10/2023 21:17:33 - INFO - datasets.info - Loading Dataset info from /home/yuewen/.cache/huggingface/datasets/json/default-eb7afd0ef14aa12c/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96
+12/10/2023 21:17:33 - INFO - datasets.builder - Found cached dataset json (/home/yuewen/.cache/huggingface/datasets/json/default-eb7afd0ef14aa12c/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96)
+12/10/2023 21:17:33 - INFO - datasets.info - Loading Dataset info from /home/yuewen/.cache/huggingface/datasets/json/default-eb7afd0ef14aa12c/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96
+------>>>>> DatasetDict({
+    train: Dataset({
+        features: ['text'],
+        num_rows: 361420
+    })
+})
+Using custom data configuration default-eb7afd0ef14aa12c
+Loading Dataset Infos from /home/yuewen/DevEnv/Anaconda/anaconda3/envs/llm/lib/python3.11/site-packages/datasets/packaged_modules/json
+Overwrite dataset info from restored data version if exists.
+Loading Dataset info from /home/yuewen/.cache/huggingface/datasets/json/default-eb7afd0ef14aa12c/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96
+Found cached dataset json (/home/yuewen/.cache/huggingface/datasets/json/default-eb7afd0ef14aa12c/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96)
+Loading Dataset info from /home/yuewen/.cache/huggingface/datasets/json/default-eb7afd0ef14aa12c/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96
+Using custom data configuration default-eb7afd0ef14aa12c
+Loading Dataset Infos from /home/yuewen/DevEnv/Anaconda/anaconda3/envs/llm/lib/python3.11/site-packages/datasets/packaged_modules/json
+Overwrite dataset info from restored data version if exists.
+Loading Dataset info from /home/yuewen/.cache/huggingface/datasets/json/default-eb7afd0ef14aa12c/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96
+Found cached dataset json (/home/yuewen/.cache/huggingface/datasets/json/default-eb7afd0ef14aa12c/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96)
+Loading Dataset info from /home/yuewen/.cache/huggingface/datasets/json/default-eb7afd0ef14aa12c/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96
+12/10/2023 21:17:35 - INFO - datasets.builder - Using custom data configuration default-eb7afd0ef14aa12c
+12/10/2023 21:17:35 - INFO - datasets.info - Loading Dataset Infos from /home/yuewen/DevEnv/Anaconda/anaconda3/envs/llm/lib/python3.11/site-packages/datasets/packaged_modules/json
+12/10/2023 21:17:35 - INFO - datasets.builder - Overwrite dataset info from restored data version if exists.
+12/10/2023 21:17:35 - INFO - datasets.info - Loading Dataset info from /home/yuewen/.cache/huggingface/datasets/json/default-eb7afd0ef14aa12c/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96
+12/10/2023 21:17:35 - INFO - datasets.builder - Found cached dataset json (/home/yuewen/.cache/huggingface/datasets/json/default-eb7afd0ef14aa12c/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96)
+12/10/2023 21:17:35 - INFO - datasets.info - Loading Dataset info from /home/yuewen/.cache/huggingface/datasets/json/default-eb7afd0ef14aa12c/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96
+12/10/2023 21:17:36 - INFO - datasets.builder - Using custom data configuration default-eb7afd0ef14aa12c
+12/10/2023 21:17:36 - INFO - datasets.info - Loading Dataset Infos from /home/yuewen/DevEnv/Anaconda/anaconda3/envs/llm/lib/python3.11/site-packages/datasets/packaged_modules/json
+12/10/2023 21:17:36 - INFO - datasets.builder - Overwrite dataset info from restored data version if exists.
+12/10/2023 21:17:36 - INFO - datasets.info - Loading Dataset info from /home/yuewen/.cache/huggingface/datasets/json/default-eb7afd0ef14aa12c/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96
+12/10/2023 21:17:36 - INFO - datasets.builder - Found cached dataset json (/home/yuewen/.cache/huggingface/datasets/json/default-eb7afd0ef14aa12c/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96)
+12/10/2023 21:17:36 - INFO - datasets.info - Loading Dataset info from /home/yuewen/.cache/huggingface/datasets/json/default-eb7afd0ef14aa12c/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96
+config --->>> LlamaConfig {
+  "_name_or_path": "/home/yuewen/Code/TinyLlama/save/tiny-llama-origin/config.json",
+  "architectures": [
+    "LlamaForCausalLM"
+  ],
+  "attention_bias": false,
+  "bos_token_id": 1,
+  "eos_token_id": 2,
+  "hidden_act": "silu",
+  "hidden_size": 2048,
+  "initializer_range": 0.02,
+  "intermediate_size": 8192,
+  "max_length": 4096,
+  "max_position_embeddings": 4096,
+  "model_type": "llama",
+  "num_attention_heads": 32,
+  "num_hidden_layers": 8,
+  "num_key_value_heads": 32,
+  "pad_token_id": 0,
+  "pretraining_tp": 1,
+  "rms_norm_eps": 1e-05,
+  "rope_scaling": null,
+  "rope_theta": 10000.0,
+  "tie_word_embeddings": false,
+  "torch_dtype": "float16",
+  "transformers_version": "4.35.2",
+  "use_cache": true,
+  "vocab_size": 55296
+}
+
+Using custom data configuration default-eb7afd0ef14aa12c
+Loading Dataset Infos from /home/yuewen/DevEnv/Anaconda/anaconda3/envs/llm/lib/python3.11/site-packages/datasets/packaged_modules/json
+Overwrite dataset info from restored data version if exists.
+Loading Dataset info from /home/yuewen/.cache/huggingface/datasets/json/default-eb7afd0ef14aa12c/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96
+Found cached dataset json (/home/yuewen/.cache/huggingface/datasets/json/default-eb7afd0ef14aa12c/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96)
+Loading Dataset info from /home/yuewen/.cache/huggingface/datasets/json/default-eb7afd0ef14aa12c/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96
+[INFO|configuration_utils.py:715] 2023-12-10 21:17:36,062 >> loading configuration file /home/yuewen/Code/TinyLlama/save/tiny-llama-origin/config.json
+[INFO|configuration_utils.py:777] 2023-12-10 21:17:36,063 >> Model config LlamaConfig {
+  "_name_or_path": "/home/yuewen/Code/TinyLlama/save/tiny-llama-origin/config.json",
+  "architectures": [
+    "LlamaForCausalLM"
+  ],
+  "attention_bias": false,
+  "bos_token_id": 1,
+  "eos_token_id": 2,
+  "hidden_act": "silu",
+  "hidden_size": 2048,
+  "initializer_range": 0.02,
+  "intermediate_size": 8192,
+  "max_length": 4096,
+  "max_position_embeddings": 4096,
+  "model_type": "llama",
+  "num_attention_heads": 32,
+  "num_hidden_layers": 8,
+  "num_key_value_heads": 32,
+  "pad_token_id": 0,
+  "pretraining_tp": 1,
+  "rms_norm_eps": 1e-05,
+  "rope_scaling": null,
+  "rope_theta": 10000.0,
+  "tie_word_embeddings": false,
+  "torch_dtype": "float16",
+  "transformers_version": "4.35.2",
+  "use_cache": true,
+  "vocab_size": 55296
+}
+
+[INFO|tokenization_utils_base.py:2020] 2023-12-10 21:17:36,065 >> loading file tokenizer.model
+[INFO|tokenization_utils_base.py:2020] 2023-12-10 21:17:36,065 >> loading file tokenizer.json
+[INFO|tokenization_utils_base.py:2020] 2023-12-10 21:17:36,065 >> loading file added_tokens.json
+[INFO|tokenization_utils_base.py:2020] 2023-12-10 21:17:36,065 >> loading file special_tokens_map.json
+[INFO|tokenization_utils_base.py:2020] 2023-12-10 21:17:36,065 >> loading file tokenizer_config.json
+[INFO|configuration_utils.py:791] 2023-12-10 21:17:36,099 >> Generate config GenerationConfig {
+  "bos_token_id": 1,
+  "eos_token_id": 2,
+  "max_length": 4096,
+  "pad_token_id": 0
+}
+
+12/10/2023 21:17:39 - INFO - __main__ - Training new model from scratch - Total size=728.03M params
+Loading cached processed dataset at /home/yuewen/.cache/huggingface/datasets/json/default-eb7afd0ef14aa12c/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-26232f97d9cd6bf1.arrow
+Loading cached processed dataset at /home/yuewen/.cache/huggingface/datasets/json/default-eb7afd0ef14aa12c/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-b47f7e40864c5878.arrow
+Loading cached processed dataset at /home/yuewen/.cache/huggingface/datasets/json/default-eb7afd0ef14aa12c/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-cb9f984ed2d58fe7.arrow
+Loading cached processed dataset at /home/yuewen/.cache/huggingface/datasets/json/default-eb7afd0ef14aa12c/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-f747c6e6f51b4644.arrow
+12/10/2023 21:17:39 - INFO - datasets.arrow_dataset - Loading cached processed dataset at /home/yuewen/.cache/huggingface/datasets/json/default-eb7afd0ef14aa12c/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-26232f97d9cd6bf1.arrow
+12/10/2023 21:17:39 - INFO - datasets.arrow_dataset - Loading cached processed dataset at /home/yuewen/.cache/huggingface/datasets/json/default-eb7afd0ef14aa12c/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-b47f7e40864c5878.arrow
+12/10/2023 21:17:39 - WARNING - __main__ - The tokenizer picked seems to have a very large `model_max_length` (1000000000000000019884624838656). Using block_size=1024 instead. You can change that default value by passing --block_size xxx.
+12/10/2023 21:17:39 - INFO - datasets.arrow_dataset - Loading cached processed dataset at /home/yuewen/.cache/huggingface/datasets/json/default-eb7afd0ef14aa12c/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-cb9f984ed2d58fe7.arrow
+12/10/2023 21:17:39 - INFO - datasets.arrow_dataset - Loading cached processed dataset at /home/yuewen/.cache/huggingface/datasets/json/default-eb7afd0ef14aa12c/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-f747c6e6f51b4644.arrow
+[INFO|trainer.py:1723] 2023-12-10 21:17:40,251 >> ***** Running training *****
+[INFO|trainer.py:1724] 2023-12-10 21:17:40,251 >>   Num examples = 126,135
+[INFO|trainer.py:1725] 2023-12-10 21:17:40,251 >>   Num Epochs = 3
+[INFO|trainer.py:1726] 2023-12-10 21:17:40,251 >>   Instantaneous batch size per device = 3
+[INFO|trainer.py:1729] 2023-12-10 21:17:40,251 >>   Total train batch size (w. parallel, distributed & accumulation) = 3
+[INFO|trainer.py:1730] 2023-12-10 21:17:40,251 >>   Gradient Accumulation steps = 1
+[INFO|trainer.py:1731] 2023-12-10 21:17:40,251 >>   Total optimization steps = 126,135
+[INFO|trainer.py:1732] 2023-12-10 21:17:40,251 >>   Number of trainable parameters = 763,398,144
+  0%|          | 500/126135 [03:35<14:57:22,  2.33it/s][INFO|trainer.py:2881] 2023-12-10 21:21:15,917 >> Saving model checkpoint to /home/yuewen/Code/TinyLlama/save/checkpoints/checkpoint-500
+{'loss': 6.4283, 'learning_rate': 4.980179965909542e-05, 'epoch': 0.01}
+[INFO|configuration_utils.py:461] 2023-12-10 21:21:15,918 >> Configuration saved in /home/yuewen/Code/TinyLlama/save/checkpoints/checkpoint-500/config.json
+[INFO|configuration_utils.py:564] 2023-12-10 21:21:15,918 >> Configuration saved in /home/yuewen/Code/TinyLlama/save/checkpoints/checkpoint-500/generation_config.json
+[INFO|modeling_utils.py:2193] 2023-12-10 21:21:18,128 >> Model weights saved in /home/yuewen/Code/TinyLlama/save/checkpoints/checkpoint-500/pytorch_model.bin
+[INFO|tokenization_utils_base.py:2428] 2023-12-10 21:21:18,128 >> tokenizer config file saved in /home/yuewen/Code/TinyLlama/save/checkpoints/checkpoint-500/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2437] 2023-12-10 21:21:18,128 >> Special tokens file saved in /home/yuewen/Code/TinyLlama/save/checkpoints/checkpoint-500/special_tokens_map.json
+  1%|          | 1000/126135 [07:20<14:55:03,  2.33it/s][INFO|trainer.py:2881] 2023-12-10 21:25:00,264 >> Saving model checkpoint to /home/yuewen/Code/TinyLlama/save/checkpoints/checkpoint-1000
+[INFO|configuration_utils.py:461] 2023-12-10 21:25:00,264 >> Configuration saved in /home/yuewen/Code/TinyLlama/save/checkpoints/checkpoint-1000/config.json
+[INFO|configuration_utils.py:564] 2023-12-10 21:25:00,265 >> Configuration saved in /home/yuewen/Code/TinyLlama/save/checkpoints/checkpoint-1000/generation_config.json
+{'loss': 5.246, 'learning_rate': 4.960359931819083e-05, 'epoch': 0.02}
+[INFO|modeling_utils.py:2193] 2023-12-10 21:25:02,448 >> Model weights saved in /home/yuewen/Code/TinyLlama/save/checkpoints/checkpoint-1000/pytorch_model.bin
+[INFO|tokenization_utils_base.py:2428] 2023-12-10 21:25:02,448 >> tokenizer config file saved in /home/yuewen/Code/TinyLlama/save/checkpoints/checkpoint-1000/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2437] 2023-12-10 21:25:02,448 >> Special tokens file saved in /home/yuewen/Code/TinyLlama/save/checkpoints/checkpoint-1000/special_tokens_map.json
+  1%|          | 1500/126135 [11:01<14:52:17,  2.33it/s][INFO|trainer.py:2881] 2023-12-10 21:28:41,440 >> Saving model checkpoint to /home/yuewen/Code/TinyLlama/save/checkpoints/checkpoint-1500
+{'loss': 4.7468, 'learning_rate': 4.9405398977286246e-05, 'epoch': 0.04}
+[INFO|configuration_utils.py:461] 2023-12-10 21:28:41,440 >> Configuration saved in /home/yuewen/Code/TinyLlama/save/checkpoints/checkpoint-1500/config.json
+[INFO|configuration_utils.py:564] 2023-12-10 21:28:41,440 >> Configuration saved in /home/yuewen/Code/TinyLlama/save/checkpoints/checkpoint-1500/generation_config.json
+[INFO|modeling_utils.py:2193] 2023-12-10 21:28:43,627 >> Model weights saved in /home/yuewen/Code/TinyLlama/save/checkpoints/checkpoint-1500/pytorch_model.bin
+[INFO|tokenization_utils_base.py:2428] 2023-12-10 21:28:43,627 >> tokenizer config file saved in /home/yuewen/Code/TinyLlama/save/checkpoints/checkpoint-1500/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2437] 2023-12-10 21:28:43,627 >> Special tokens file saved in /home/yuewen/Code/TinyLlama/save/checkpoints/checkpoint-1500/special_tokens_map.json
+  1%|          | 1516/126135 [11:14<15:26:43,  2.24it/s]Traceback (most recent call last):
+  File "/home/yuewen/Code/TinyLlama/pretrain/run_clm_sim.py", line 686, in <module>
+    main()
+  File "/home/yuewen/Code/TinyLlama/pretrain/run_clm_sim.py", line 634, in main
+    train_result = trainer.train(resume_from_checkpoint=checkpoint)  # 模型训练结果
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuewen/DevEnv/Anaconda/anaconda3/envs/llm/lib/python3.11/site-packages/transformers/trainer.py", line 1555, in train
+    return inner_training_loop(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuewen/DevEnv/Anaconda/anaconda3/envs/llm/lib/python3.11/site-packages/transformers/trainer.py", line 1865, in _inner_training_loop
+    and (torch.isnan(tr_loss_step) or torch.isinf(tr_loss_step))
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+  1%|          | 1516/126135 [11:15<15:25:17,  2.24it/s]
+
+Process finished with exit code 130 (interrupted by signal 2: SIGINT)
+
